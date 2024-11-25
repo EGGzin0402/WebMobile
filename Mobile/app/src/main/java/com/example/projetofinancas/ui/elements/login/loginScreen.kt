@@ -45,6 +45,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.projetofinancas.R
 import com.example.projetofinancas.ui.elements.input.InputButton
 import com.example.projetofinancas.ui.elements.input.InputText
+import com.example.projetofinancas.ui.elements.input.InputTextLogin
 import com.example.projetofinancas.ui.theme.Black
 import com.example.projetofinancas.ui.theme.White
 import com.example.projetofinancas.ui.theme.majorMonoDisplaytFontFamily
@@ -58,6 +59,8 @@ fun loginScreen(
 ) {
 
     val loginState by viewModel.loginState.collectAsState()
+
+    val showPassword = remember { mutableStateOf(false) }
 
     LaunchedEffect(loginState) {
         if (loginState is LoginState.Success) {
@@ -123,6 +126,10 @@ fun loginScreen(
                 viewModel = viewModel,
                 navigateToHome = {
                     navigateToHome()
+                },
+                showPassword = showPassword.value,
+                onShownPasswordChange = {
+                    showPassword.value = !showPassword.value
                 }
             )
             IconButton(
@@ -151,7 +158,9 @@ fun loginForm(
     loginState: LoginState,
     viewModel: loginViewModel,
     modifier: Modifier = Modifier,
-    navigateToHome: () -> Unit
+    navigateToHome: () -> Unit,
+    showPassword: Boolean,
+    onShownPasswordChange: () -> Unit
 ) {
 
     var email by remember { mutableStateOf("") }
@@ -177,10 +186,12 @@ fun loginForm(
             onValueChange = {email = it}
         )
         Spacer(modifier = Modifier.padding(10.dp))
-        InputText(
+        InputTextLogin(
             title = "Senha",
             value = password,
-            onValueChange = {password = it}
+            onValueChange = {password = it},
+            showPassword = showPassword,
+            onShownPasswordChange = { onShownPasswordChange() }
         )
         Spacer(modifier = Modifier.padding(10.dp))
         InputButton(

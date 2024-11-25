@@ -46,6 +46,7 @@ import com.example.projetofinancas.ui.elements.input.InputButton
 import com.example.projetofinancas.ui.elements.input.InputText
 import com.example.projetofinancas.ui.elements.input.InvertedInputButton
 import com.example.projetofinancas.ui.elements.input.InvertedInputText
+import com.example.projetofinancas.ui.elements.input.InvertedInputTextLogin
 import com.example.projetofinancas.ui.elements.login.LoginState
 import com.example.projetofinancas.ui.elements.login.loginViewModel
 import com.example.projetofinancas.ui.theme.Black
@@ -61,6 +62,8 @@ fun registerScreen(
 ) {
 
     val loginState by viewModel.loginState.collectAsState()
+
+    val showPassword = remember { mutableStateOf(false) }
 
     LaunchedEffect(loginState) {
         if (loginState is LoginState.Success) {
@@ -124,7 +127,11 @@ fun registerScreen(
             registerForm(
                 loginState = loginState,
                 viewModel = viewModel,
-                navigateToHome = navigateToHome
+                navigateToHome = navigateToHome,
+                showPassword = showPassword.value,
+                onShownPasswordChange = {
+                    showPassword.value = !showPassword.value
+                }
             )
             IconButton(
                 onClick = onNavigateClick,
@@ -153,7 +160,9 @@ fun registerForm(
     loginState: LoginState,
     viewModel: registerViewModel,
     modifier: Modifier = Modifier,
-    navigateToHome: () -> Unit
+    navigateToHome: () -> Unit,
+    showPassword: Boolean,
+    onShownPasswordChange: () -> Unit
 ) {
 
     var email by remember { mutableStateOf("") }
@@ -176,10 +185,12 @@ fun registerForm(
             onValueChange = {email = it}
         )
         Spacer(modifier = Modifier.padding(10.dp))
-        InvertedInputText(
+        InvertedInputTextLogin(
             title = "Senha",
             value = password,
-            onValueChange = {password = it}
+            onValueChange = {password = it},
+            showPassword = showPassword,
+            onShownPasswordChange = { onShownPasswordChange() }
         )
         Spacer(modifier = Modifier.padding(10.dp))
         InvertedInputButton(

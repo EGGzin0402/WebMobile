@@ -1,0 +1,28 @@
+<div class="main_container" id="create_container">
+    
+<form method="post" action="create">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"> Nome </label>
+        <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+        <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"> Preço </label>
+        <input type="number" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" step="0.01">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"> Data </label>
+        <input type="text" name="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+
+    <label for="select" class="form-label"> Profit </label>
+    <select class="form-select" name="profit" aria-label="Default select example">
+        <option selected disabled> Profit? </option>
+        <option value=true>Sim</option>
+        <option value=false>Não</option>
+    </select>
+
+  <button type="submit" class="btn btn-primary" id="create-button"> CRIAR </button>
+</form>
+
+</div>
+

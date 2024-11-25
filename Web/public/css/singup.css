@@ -1,0 +1,108 @@
+#singup-container
+{
+    width: 100%;
+    height: 90vh;
+
+    background-image: url("../images/Signup.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    position: absolute;
+
+}
+
+#singup-form
+{
+    width: 30%;
+    height: 50%;
+
+    background-color: #fefefef1;
+
+    color: #121212;
+
+    border-radius: 1vh;
+
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+}
+
+#singup-form a
+{
+    text-decoration: none;
+    color: #121212;
+}
+
+#singup-form h2
+{
+    text-align: center;
+    margin-top: 2vh;
+
+    font-family: "Major Mono Display", monospace;
+}
+
+#singup-form input
+{
+    width: 80%;
+    height: 5vh;
+
+    margin: 2vh 10%;
+
+    padding: 1vh;
+
+    border: none;
+    border-radius: 1vh;
+
+    transition: all 0.3s ease-in-out;
+
+    box-shadow: 0 0 0.1vh 0.1vh #1212123b;
+
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#singup-form input:focus
+{
+    outline: none;
+    box-shadow: 0 0 0.4vh 0.1vh #1212123b;
+
+    transform: scale(1.02);
+
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+#singup-form button
+{
+    width: 80%;
+    height: 5vh;
+
+    margin: 2vh 10%;
+
+    padding: 1vh;
+
+    border: none;
+    border-radius: 1vh;
+
+    background-color: #121212;
+    color: #fefefe;
+
+    cursor: pointer;
+    letter-spacing: 0vh;
+
+    transition: all 0.3s ease-in-out;
+}
+
+#singup-form button:hover, #singup-form button:focus
+{
+    background-color: #fefefe;
+    color: #121212;
+
+    border: 0.1vh solid #121212;
+
+    letter-spacing: 0.2vh;
+}

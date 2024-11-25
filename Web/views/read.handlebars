@@ -1,0 +1,29 @@
+<div class="table-container">
+    <table class="minimal-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Preço</th>
+          <th>Data</th>
+          <th>Profit</th>
+        </tr>
+      </thead>
+        {{#each items}}
+            <tbody onclick="window.location.href='/details/{{id}}'">
+                <tr>
+                <td> {{ name }} </td>
+                <td>R${{ price }}</td>
+                <td>{{ date }}</td>
+                {{#if profit}}	
+                    <td class="profit" id="p-true">Sim <ion-icon name="checkmark-outline"></ion-icon></td>
+                {{else}}
+                    <td class="profit" id="p-false">Não <ion-icon name="close-outline"></ion-icon></td>
+                {{/if}}
+                </tr>
+            </tbody>
+        {{/each}}
+    </table>
+  </div>
+
+
+    <button class="btn btn-primary fab" onclick="window.location.href='/create'"> <ion-icon name="add-outline"></ion-icon> </button>

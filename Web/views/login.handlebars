@@ -1,0 +1,70 @@
+<div class="main_container" id="login-container">
+
+    <div id="login-form">
+
+      <h2> Acesse a <br> <strong> Finance Vision </strong> </h2>
+
+      <form action="/login" method="post">
+        <input type="text" name="email" placeholder="E-mail" required>
+        <input type="password" name="password" placeholder="Senha" required>
+        <button type="submit">Entrar</button>
+      </form>
+
+      <span> Não possui conta? <a href="/register"> <strong> Cadastre-se </strong> </a> </span>
+
+    </div>
+
+</div>
+
+
+<script type="module">
+
+  window.addEventListener("DOMContentLoaded", () => {
+      const firebaseConfig = {
+        apiKey: "AIzaSyDImdF3fV8PRRMiCz6nSeM_xuZDKT-NRjY",
+        authDomain: "projeto-financas-93161.firebaseapp.com",
+        projectId: "projeto-financas-93161",
+        storageBucket: "projeto-financas-93161.firebasestorage.app",
+        messagingSenderId: "602234598121",
+        appId: "1:602234598121:web:b2b67807cfa5d7df063678",
+        measurementId: "G-5KFW1JBRFG"
+      };
+
+      firebase.initializeApp(firebaseConfig)
+
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
+
+      document
+      .getElementById("login-form")
+      .addEventListener("submit", (event) =>{
+        event.preventDefault();
+        const login = event.target.email.value;
+        const password = event.target.password.value;
+
+        firebase
+        .auth()
+        .signInWithEmailAndPassword(login,password)
+        .then(({user}) => {
+
+          return user.getIdToken().then((idToken) => { 
+            console.log(idToken)
+            return fetch("/login", {
+              method: "POST",
+              headers: {"Content-Type": "application/json"},
+              body: JSON.stringify({ idToken })
+            })
+          })
+
+        })
+        .then(() =>{
+          window.location.assign("/")
+        })
+        .catch((error) => {
+          console.error(error.message);
+        });
+
+      })
+
+  })
+
+</script>

@@ -1,0 +1,92 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Major+Mono+Display&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body
+{
+    background-color: #000000;
+}
+
+.navbar
+{
+    background-color: #121212;
+    padding: 0.5vh 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: middle;
+
+    height: 10vh;
+
+    border-bottom: 0.2vh solid #FEFEFE;
+
+    box-shadow: 0 0.2vh 1vh rgba(255, 255, 255, 0.2);
+
+    z-index: 99;
+}
+
+.navbar-brand
+{
+    color: #FEFEFE;
+    font-size: 2.5vh;
+    font-weight: bold;
+    font-family: "Major Mono Display", monospace;
+
+    transition: all 0.4s ease-in-out;
+}
+
+.navbar-brand:hover
+{
+    letter-spacing: 0.6vh;
+    color: #FEFEFE;
+
+    cursor: pointer;
+}
+
+#nav-img
+{
+    width: auto;
+    height: 7vh;
+    transform: rotateY(-180deg);
+    filter: invert(1);
+}
+
+.main_container
+{
+    color: #FEFEFE;
+
+    margin: 0 auto;
+}
+
+.fab
+{
+    position: fixed;
+    bottom: 5vh;
+    right: 5vh;
+
+    height: 10vh;
+
+    transition: all 0.3s ease-in-out;
+
+    background-color: #FEFEFE;
+    color: #121212;
+
+    font-size: 7vh;
+
+    border: 0.5vh solid #121212;
+    border-radius: 1vh;
+}
+
+.fab ion-icon
+{
+    padding-bottom: 0.5vh;
+}
+
+.fab:hover
+{
+    cursor: pointer;
+
+    background-color: #121212;
+    color: #FEFEFE;
+
+    border: 0.5vh solid #FEFEFE;
+}

@@ -1,0 +1,39 @@
+#create_container
+{
+    width: 80%;
+    height: fit-content;
+    margin: 5vh auto;
+
+    background-color: #FEFEFE;
+    color: #121212;
+
+    border-bottom: 0;
+    padding: 5vh;
+    
+    border-radius: 2vh;
+}
+
+#create-button, #delete-button
+{
+    width: 100%;
+    padding: 2vh;
+    margin-top: 2vh;
+
+    background-color: #121212;
+    color: #FEFEFE;
+
+    border: 0;
+    border-radius: 1vh;
+
+    border: 0.2vh solid #FEFEFE;
+
+    transition: all 0.3s ease-in-out;
+}
+
+#create-button:hover, #delete-button:hover
+{
+    background-color: #FEFEFE;
+    color: #121212;
+
+    border: 0.2vh solid #121212;
+}
